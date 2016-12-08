@@ -106,7 +106,8 @@ class User::ResumesController < ApplicationController
   def page5_commit
     @resume = Resume.find(params[:id])
     Resume.update(resume_params)
-    redirect_to user_resume_preview_path(@resume)
+    #redirect_to user_resume_preview_path(@resume)
+    redirect_to user_session_path
   end
 
   def finish
