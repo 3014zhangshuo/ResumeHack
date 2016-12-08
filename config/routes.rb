@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         get :page5
         post :page5_commit
         get :finish
+        get :send_pdf_attachment
       end
 
     end

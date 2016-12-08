@@ -114,6 +114,15 @@ class User::ResumesController < ApplicationController
   end
 
 
+  # 暂留用于发信的函数
+  def send_pdf_attachment
+    @resume = Resume.find(params[:id])
+    # 发信
+    # ModelMailer.send_attachment_mail(resume).deliver
+  end
+
+
+
   private
   # 50列参数
   def resume_params
