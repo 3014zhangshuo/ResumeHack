@@ -8,3 +8,4 @@
 
 # 添加一个user用户
 User.create([email:"a@user.com", password:"111111", password_confirmation:"111111"])
+
