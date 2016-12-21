@@ -1,4 +1,25 @@
+<!-- 附件用于打印的script外链 -->
+<!-- <script src="http://odor1hjie.bkt.clouddn.com/html2canvas.js"></script> -->
+<script src="http://odor1hjie.bkt.clouddn.com/jspdf.debug.js"></script>
+
+
 <%= render partial: "resume_content", locals: { resume: @resume } %>
 
+<div class="col-md-4 col-md-offset-4 btn btn-primary" id="download">下载</div>
 
-<a href="#" class="col-md-4 col-md-offset-4 btn btn-primary" id="print">下载</a>
+<!-- 打印pdfscript -->
+<script>
+$("#download").click(function(event) {
+  /* Act on the event */
+  var pdf = new jsPDF('#to-pdf','pt','a4');
+  // 支持分页
+  var options = {
+         pagesplit: true
+    };
+  // 打印
+  pdf.addHTML($('#cv'),options,function() {
+      pdf.save('resume.pdf');
+  });
+
+});
+</script>
