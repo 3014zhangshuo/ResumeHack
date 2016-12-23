@@ -185,7 +185,7 @@ class User::ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
 
-    if params[:commit] == "保存并进入下一步"
+    if params[:commit] == "生成简历"
       redirect_to user_resume_preview_path(@resume)
     else
       redirect_to page7_user_resume_path(@resume)
