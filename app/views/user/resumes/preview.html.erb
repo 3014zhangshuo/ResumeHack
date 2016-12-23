@@ -47,7 +47,7 @@
       event.preventDefault();
       $.ajax({
       	url: '<%= user_resume_save_html_path(@resume) %>',
-      	type: 'get',
+      	type: 'post',
       	data: { content: $('#cv').html() },
       	success: function(result){
       		$('#cv').html(result);
