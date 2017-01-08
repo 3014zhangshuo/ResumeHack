@@ -2,7 +2,7 @@
 lock "3.7.1"
 
 set :application, "ResumeHack"
-set :repo_url, "https://github.com/ResumeHack/ResumeHack.git"
+set :repo_url, "https://github.com/3014zhangshuo/ResumeHack.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
