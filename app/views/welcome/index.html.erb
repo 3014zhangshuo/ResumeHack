@@ -1,1 +1,161 @@
-<h1> Hello World! </h1>
+<head>
+	<title>ResumeHack - Home Page</title>
+</head>
+
+<header class="page-header navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span id="open-nav" class="open-nav"><i class="fa fa-bars"></i> Menu</span><span id="close-nav" class="hidden-xs"><i class="fa fa-times"></i> Close</span></button>
+		<a href="/" class="navbar-brand"><img src="assets/RHLogo_v1.png" width="150"  alt="LiveCareer" title="LiveCareer"></a> </div>
+    <div class="navbar-collapse collapse pull-right">
+      <div class="row">
+      <br>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right nav-pills">
+        <% if !current_user %>
+          <li><%#= link_to(content_tag(:i, "注册", class: "fa fa-user"), new_user_registration_path) %> </li>
+          <li><%#= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
+        <% else %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Hi!, <%= current_user.email %>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+               <li><%= link_to "我的简历", user_resumes_path %></li>
+							 <% if current_user.admin? %>
+								<li><%= link_to("Admin 选单", admin_users_path ) %></li>
+							 <% end %>
+               <li class="divider"> </li>
+               <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+</header>
+
+<div class="page-main">
+  <div class="banner-section clb-banner">
+    <div class="container">
+
+			<br>
+      <h1 class="h1">史上第一个为程序员量身定做的简历生成器</h1>
+      <p class="p-lg hidden-xs">基于Ruby界大神Xdite的终极简历“高频小套路”</p>
+			<% if current_user.blank? %>
+        <%= link_to '注册提升简历',welcome_entry_path,class: "btn btn-primary btn-lg" %>
+			<% else %>
+				<%= link_to '开始提升简历',user_resumes_path,class: "btn btn-primary btn-lg" %>
+			<% end %>
+    </div>
+  </div>
+
+
+  <!-- banner section ends here -->
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <h2 class="h2 text-center">将简历打造成你人生最精彩的作品，通过一页A4纸，成功展现最完美的自己</h2>
+				<br>
+        <div class="col-md-4 col-sm-4">
+          <div class="thumbnail"><span class="thumb-img"><img width="244" height="171" alt="clb icon" src="https://cdn-us-ec.yottaa.net/52e2a59b63e31e54d4003d89/www.livecareer.com/v~13.3e6/images/uploaded/lca/clb-icon-a.jpg?yocs=p_&amp;yoloc=us"/></span>
+            <div class="caption">
+              <h3 class="h4">根据专家引导语，找到自己最突出的亮点</h3>
+              <p>根据数百份成功简历案例分析，<br>将成功经验倾囊相授。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4">
+          <div class="thumbnail"><span class="thumb-img"><img width="215" height="155" alt="clb icon" src="https://cdn-us-ec.yottaa.net/52e2a59b63e31e54d4003d89/www.livecareer.com/v~13.3e6/images/uploaded/lca/clb-icon-b.png?yocs=p_&amp;yoloc=us"/></span>
+            <div class="caption">
+              <h3 class="h4">珍惜生命，远离Word微软</h3>
+              <p>在精美的HTML页面直接编辑简历，所见即所得。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4">
+          <div class="thumbnail"><span class="thumb-img"><img width="188" height="173" alt="clb icon" src="https://cdn-us-ec.yottaa.net/52e2a59b63e31e54d4003d89/www.livecareer.com/v~13.3e6/images/uploaded/lca/clb-icon-c.png?yocs=p_&amp;yoloc=us"/></span>
+            <div class="caption">
+              <h3 class="h4">为精心修改的简历，搭配量身定制的外衣</h3>
+              <p>自动生成包含精美排版的文档，不用再担心<br>字体大小、格式调整等繁琐细节。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight para-section about-product">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h2 class="h2">30分钟，提高面试概率3x</h2>
+          <h4 class="h4">耗费很少量的时间，用最高效的途径迅速提升简历成功率</h4>
+          <ul class="para-section-list">
+            <li>我们的简历流程最大程度上模仿了各个领域职业导师真人一对一修改的所有步骤</li>
+            <li>我们将简历书写过程分解为最为细节、最容易思考和回忆的问题</li>
+            <li>我们的简历可以直接导出为PDF格式，并且随时返回修改、更新</li>
+						<!-- <li>书写完成后，还可使用我们的咨询服务，快速用导师专业的眼光将简历进一步提拔</li> -->
+          </ul>
+          <!-- <p>全网最有效的简历修改方法论，融入了</p> -->
+        </div>
+        <div class="col-md-5"><img width="716" height="362" alt="clb-laptop" class="desktop-img hidden-xs hidden-sm" src="https://cdn-us-ec.yottaa.net/52e2a59b63e31e54d4003d89/www.livecareer.com/v~13.3e6/images/uploaded/lca/clb-laptop.png?yocs=p_&amp;yoloc=us"/> <img width="720" height="420" alt="clb-laptop" class="mob-img visible-xs visible-sm" src="https://cdn-us-ec.yottaa.net/52e2a59b63e31e54d4003d89/www.livecareer.com/v~13.3e6/images/uploaded/lca/clb-laptop-mob.png?yocs=p_&amp;yoloc=us"/>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- rb section ends here -->
+  <div class="section testimonial text-center">
+    <div class="container">
+      <h2 class="h2 text-center">使用黑客简历的成功案例</h2>
+      <div data-ride="carousel" class="carousel slide" id="testimonal-carousel">
+        <div class="carousel-inner">
+          <div class="item active">
+          <blockquote>
+          <p>我以前的简历绞尽脑汁想很久、写很久、改很久，自己觉得已经很好了，结果投了20几个工作岗位之后了无音讯，连个面试都没有，而这些岗位都是我胜任的，有些甚至我都有些over-qualified。
+						后来只用黑客简历的方法，把旧简历废掉，重头开始思考每一段经历，写出来的都不敢相信是我自己的简历！投递了5个公司之后，每一个都拿到了面试，要感谢简历上的提升让我冲破了求职道路上的瓶颈。</p>
+          <span>李厉 &nbsp; <i>- 科技上市公司资深架构师</i></span></blockquote>
+          </div>
+          <div class="item active">
+          <blockquote>
+          <p>我每年会看上千份简历，面试数百人。大多数求职者即便失败了也不会意识到，凭空自己开始写简历是非常低效的。一定要参考成功的简历，包括模板、语式、关键字，大部分的简历其实都是用比较professional的语气来写，
+					所以读起来感觉是类似的。简历不是要表达个人情感，而是要将职业经历中最为精华的部分在30秒阅读时间中展现出来。这一点，简历黑客做到了。</p>
+          <span>张晓涵 &nbsp; <i>- 科技公司人力资源总监</i></span></blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- testimonial section ends here -->
+  <div class="section text-center highlight">
+    <div class="container">
+			<h1 class="h1">你，可以与众不同</h1>
+			<p class="p-lg hidden-xs">注册简历黑客，立刻从海量简历中脱引而出</p>
+			<%= link_to '这就开始，改变人生',welcome_entry_path,class: "btn btn-primary btn-lg" %>
+    </div>
+  </div>
+
+</div>
+	<!-- Insert default "BodyContentSub" markup here --><!-- Insert default "BodyContent" markup here -->
+
+<%= render "common/footer" %>
+
+<script type='text/javascript'>
+   (function(m, ei, q, i, a, j, s) {
+       m[i] = m[i] || function() {
+           (m[i].a = m[i].a || []).push(arguments)
+       };
+       j = ei.createElement(q),
+           s = ei.getElementsByTagName(q)[0];
+       j.async = true;
+       j.charset = 'UTF-8';
+       j.src = '//static.meiqia.com/dist/meiqia.js';
+       s.parentNode.insertBefore(j, s);
+   })(window, document, 'script', '_MEIQIA');
+   _MEIQIA('entId', 46424);
+</script>
